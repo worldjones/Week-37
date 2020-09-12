@@ -6,7 +6,7 @@ Movie master -> src -> main -> java
 
 
 Løb ind i nogle problemer med test og database.
-Travis virker, men kan ikke deploy og tilgå min side (502 Bad Gateway)
+Travis virker, men kan ikke deploy og tilgå min side (502 Bad Gateway) https://www.worldjones.dk/
 
 
 Day 3 
