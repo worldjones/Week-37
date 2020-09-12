@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Event Bubbling and event arguments</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .mydiv{
+                width: 75px; 
+                height: 25px;
+                background-color:yellow; 
+                margin:1px;}
+            </style>
+        </head>
+        <body>
+        <p id='nameList'></p>
+        <form id='changeList'>
+            <input type="text" id="addName" name="addName">
+            <input type="submit" id="add" value="Add name">
+            <input type="submit" id="removeFirst" value="Remove first">
+            <input type="submit" id="removeLast" value="Remove last">
+        </form>
+
+        <script>
+            let names = ["Lars", "Jan", "Peter", "Bo", "Frederik"];
+
+            function listHTML(array) {
+                array2 = array.map(function (item) {
+                    return '<li>' + item + '</li>';
+                });
+
+                array2.push('</ul>');
+                array2.unshift('<ul>');
+                array3 = array2.join('');
+
+                document.getElementById("nameList").innerHTML = array3;
+            }
+
+            listHTML(names);
+
+            let form = document.getElementById("changeList");
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                let addName = document.getElementById("add");
+                addName.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    let name = document.getElementById("addName").value;
+                    names.push(name);
+                    listHTML(names);
+                });
+                
+                let removeF = document.getElementById("removeFirst");
+                removeF.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    names.shift();
+                    listHTML(names);
+                });
+                
+                let removeL = document.getElementById("removeLast");
+                removeL.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    names.pop();
+                    listHTML(names);
+                });
+                
+            });
+
+        </script>
+    </body>
+</html> 

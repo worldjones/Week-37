@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Event Bubbling and event arguments</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .mydiv{
+                width: 75px; 
+                height: 25px;
+                background-color:yellow; 
+                margin:1px;}
+            </style>
+        </head>
+<body>
+        <div id="outer">
+            <div class="mydiv" id="1">Tryk her!</div>
+            <div class="mydiv" id="2">Tryk her!</div>
+            <div class="mydiv" id="3">Tryk her!</div>
+            <div class="mydiv" id="4">Tryk her!</div>
+            <div class="mydiv" id="5">Tryk her!</div>
+            <div class="mydiv" id="6">Tryk her!</div>
+            <div class="mydiv" id="7">Tryk her!</div>
+            <div class="mydiv" id="8">Tryk her!</div>
+            <div class="mydiv" id="9">Tryk her!</div>
+            <div class="mydiv" id="10">Tryk her!</div>
+            <div class="mydiv" id="11">Tryk her!</div>
+            <div class="mydiv" id="12">Tryk her!</div>
+        </div>
+        <script>
+            var outer = document.getElementById("outer");
+            outer.addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = e.target;
+
+                console.log("Hi from " + target.id);
+            });
+
+            <!-- Har fjernet hvor den henter de div der bruges til a-delen af opgaven, men koden under er det der blev brugt-->
+            div1.addEventListener('click', (event) => {
+                event.preventDefault();
+                var id = document.getElementsByClassName("mydiv")[0].id;
+                console.log("Hi from " + id);
+            })
+            div2.addEventListener('click', (event) => {
+                event.preventDefault();
+                var id = document.getElementsByClassName("mydiv")[1].id;
+                console.log("Hi from " + id);
+            })
+        </script>
+    </body>
+</html>
